@@ -28,7 +28,7 @@ const actions = {
   },
 
   async LogIn({commit}, user) {
-      await commit("setUser", user.get('id'));
+      await commit("setUser", user.get('email'));
       return {status: true, msg: 'LoggedIn Successfully!'}
   },
 
@@ -38,7 +38,7 @@ const actions = {
   },
 
   async CreateProduct({state, dispatch }, product) {
-    product.userId = state.user.id
+    product.userId = state.user
     state.products.push(product)
     return await dispatch("GetProducts");
   },
